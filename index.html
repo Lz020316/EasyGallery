@@ -8,28 +8,23 @@
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>行布局算法实现</title>
+    <title>图片墙</title>
     <style>
-      /* CSS样式将在后续部分提供 */
-      /* 全局样式重置 */
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
       }
 
-      /* 容器样式 */
       #gallery {
         margin: 0 auto;
       }
 
-      /* 行样式 */
       .row {
         display: flex;
-        margin-bottom: 5px; /* 行间距 */
+        margin-bottom: 5px;
       }
 
-      /* 图片样式 */
       .photo {
         display: block;
         flex-shrink: 0;
@@ -37,14 +32,58 @@
     </style>
   </head>
   <body>
+    <nav style="background-color: #333; padding: 10px">
+      <ul
+        style="
+          list-style: none;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 0;
+          padding: 0;
+        "
+      >
+        <li style="margin: 0 15px">
+          <a
+            href="#"
+            style="
+              color: white;
+              text-decoration: none;
+              font-size: 18px;
+              transition: color 0.3s;
+            "
+          >
+            Gallery
+          </a>
+        </li>
+        <li style="margin: 0 15px">
+          <a
+            href="https://github.com/Lz020316/EasyGallery"
+            target="_blank"
+            style="
+              display: flex;
+              align-items: center;
+              text-decoration: none;
+              transition: color 0.3s;
+            "
+          >
+            <img
+              src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+              alt="GitHub"
+              width="30"
+              height="30"
+              style="margin-right: 5px"
+            />
+            <span style="color: white; font-size: 18px">GitHub</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
     <div id="gallery"></div>
-    <script>
-        
-    </script>
-    <!-- 引入JavaScript文件 -->
+
     <script type="module">
-        import PhotoGallery from "./Gallery.js";
-        const { Photo, Gallery } = PhotoGallery;
+      import PhotoGallery from "./Gallery.js";
+      const { Photo, Gallery } = PhotoGallery;
       // Execute after the page is fully loaded
       window.onload = function () {
         /**
