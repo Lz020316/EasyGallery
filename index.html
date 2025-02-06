@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="keywords"
+      content="行布局, 瀑布流, 图片布局, 图片墙, 图片排列，图片展示，vue，react，angular，前端，JavaScript，CSS，HTML，vue瀑布流"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>行布局算法实现</title>
+    <style>
+      /* CSS样式将在后续部分提供 */
+      /* 全局样式重置 */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* 容器样式 */
+      #gallery {
+        margin: 0 auto;
+      }
+
+      /* 行样式 */
+      .row {
+        display: flex;
+        margin-bottom: 5px; /* 行间距 */
+      }
+
+      /* 图片样式 */
+      .photo {
+        display: block;
+        flex-shrink: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="gallery"></div>
+    <script>
+        
+    </script>
+    <!-- 引入JavaScript文件 -->
+    <script type="module">
+        import PhotoGallery from "./Gallery.js";
+        const { Photo, Gallery } = PhotoGallery;
+      // Execute after the page is fully loaded
+      window.onload = function () {
+        /**
+         * Simulated photo data
+         * Here we use sample images, you can replace them with actual image URLs and sizes.
+         */
+        const photos = [
+          new Photo("https://picsum.photos/id/1011/600/400", 600, 400),
+          new Photo("https://picsum.photos/id/1012/800/600", 800, 600),
+          new Photo("https://picsum.photos/id/1013/400/600", 400, 600),
+          new Photo("https://picsum.photos/id/1015/600/400", 600, 400),
+          new Photo("https://picsum.photos/id/1016/800/1200", 800, 1200),
+          new Photo("https://picsum.photos/id/1018/1200/800", 1200, 800),
+          new Photo("https://picsum.photos/id/1020/800/400", 800, 400),
+          new Photo("https://picsum.photos/id/1021/600/800", 600, 800),
+          new Photo("https://picsum.photos/id/1024/800/600", 800, 600),
+          new Photo("https://picsum.photos/id/1025/400/800", 400, 800),
+          // You can continue to add more photos
+        ];
+
+        // Create a Gallery instance, passing in the list of photos, container ID, and configuration options
+        const gallery = new Gallery(photos, "gallery", {
+          targetHeight: 300, // Target row height
+          margin: 5, // Margin between photos
+        });
+
+        // Initialize the gallery, perform layout and rendering
+        gallery.init();
+      };
+    </script>
+  </body>
+</html>
